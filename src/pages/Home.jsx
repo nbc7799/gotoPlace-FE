@@ -1,10 +1,10 @@
-import Section from '@/components/Section'
+import Section from '@/components/Section';
 
 export default function Home() {
   return (
-    <>
-    <Section/>
-    <Section/>
-    </>
-  )
+    <div className="h-full w-full bg-blue-300">
+      <Section />
+      <Section />
+    </div>
+  );
 }
