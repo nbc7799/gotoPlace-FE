@@ -15,13 +15,14 @@ export default function Home() {
       .catch(err => {
         console.log('에러발생!', err);
       });
+    setLoading(false);
   }, []);
 
-  if (loading) return;
+  if (loading) return <p>맛집 소환중!</p>;
   return (
     <div className="h-full w-full bg-blue-300">
-      <Section title={'찜한 맛집'} />
-      <Section title={'맛집 목록'} />
+      <Section title={'찜한 맛집'} places={places} />
+      <Section title={'맛집 목록'} places={places} />
     </div>
   );
 }
