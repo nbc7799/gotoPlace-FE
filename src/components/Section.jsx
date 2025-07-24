@@ -1,23 +1,14 @@
 import PlaceCard from './PlaceCard';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { BASE_URL } from '../constants/baseURL';
+
+import { getPlace } from '../api/getPlace';
 
 export default function Section({ title, endpoint }) {
   const [loading, setLoading] = useState(true);
   const [places, setPlaces] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(`${BASE_URL}/${endpoint}`)
-      .then(response => {
-        setPlaces(response.data.places);
-        console.log(response.data.places);
-      })
-      .catch(err => {
-        console.log('에러발생!', err);
-      });
-    setLoading(false);
+    getPlace(endpoint, setLoading, setPlaces);
   }, []);
 
   if (loading) return <p>맛집 소환중!</p>;
