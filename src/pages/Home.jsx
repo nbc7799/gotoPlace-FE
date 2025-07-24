@@ -2,9 +2,9 @@ import Section from '@/components/Section';
 
 export default function Home() {
   return (
-    <div className="h-full w-full bg-blue-300">
-      <Section title={'찜한 맛집'} />
-      <Section title={'맛집 목록'} />
+    <div className="h-screen w-screen">
+      <Section title={'찜한 맛집'} endpoint={'users/places'} />
+      <Section title={'맛집 목록'} endpoint={'places'} />
     </div>
   );
 }
