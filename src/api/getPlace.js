@@ -7,7 +7,7 @@ export const getPlace = async (endpoint, setLoading, setPlaces, setError) => {
   try {
     const response = await axios.get(`${BASE_URL}/${endpoint}`);
     setPlaces(response.data.places);
-    console.log(response.data.places);
+    console.log('getplace', response.data.places);
   } catch (err) {
     if (err.response) {
       const status = err.response.status;
