@@ -12,14 +12,26 @@ export default function Section({ title, endpoint }) {
   const [isDefaultSort, setIsDefaultSort] = useState(true);
 
   useEffect(() => {
-    const initPlace = getPlace(endpoint, setLoading, setPlaces, setError);
-    setPlaces(initPlace);
-    console.log('places', places);
-    console.log('initPlace', initPlace.response);
+    const initPlace = async () => {
+      setLoading(true);
+      try {
+        const data = await getPlace(endpoint);
+        setPlaces(data);
+      } catch {
+        console.log('error');
+      } finally {
+        setLoading(false);
+      }
+    };
+    initPlace();
   }, [endpoint]);
 
+  useEffect(() => {
+    console.log('places:', places);
+  }, [places]);
+
   const handleClickButton = () => {
-    if (locError) return alert(locError);
+    if (locError) return locError;
     setIsDefaultSort(prev => !prev);
   };
 

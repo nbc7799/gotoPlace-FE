@@ -11,7 +11,6 @@ export const useUserLocation = () => {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
         });
-        console.log(location);
       },
       error => {
         setError('위치 정보를 가져오는 데 실패했습니다.');
