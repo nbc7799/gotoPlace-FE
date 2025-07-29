@@ -5,6 +5,7 @@ import { BASE_URL } from '../constants/baseURL';
 export const getPlace = async endpoint => {
   try {
     //axios로 get요청보냄  기본 url에 뒤에 endpoint더해서 해당 데이터 return해줌
+    // 즉 await써서 axios.get으로 데이터 다 불러올때까지 기다려주고 그리고 response 반환해!
     const response = await axios.get(`${BASE_URL}/${endpoint}`);
     return response.data.places;
   } catch (err) {
