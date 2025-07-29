@@ -1,6 +1,8 @@
 import { BASE_URL } from '../constants/baseURL';
+import { useUserLocation } from '../hooks/useUserLocation';
 
 export default function PlaceCard({ item }) {
+  useUserLocation();
   return (
     <div className="aspect-[0.8] bg-stone-200 text-center">
       <img
